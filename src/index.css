@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "tailwindcss";
+
+* {
+  font-family: "Urbanist", sans-serif;
+}
+
+:root {
+  --background: 0 0% 8%;
+  --foreground: 0 0% 100%;
+  --primary: 255 40% 48%;
+  --primary-foreground: 0 0% 100%;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.twirling-lines {
+  background: linear-gradient(
+    45deg,
+    #1a1a1a 25%,
+    transparent 25%,
+    transparent 50%,
+    #1a1a1a 50%,
+    #1a1a1a 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 20px 20px;
+}
