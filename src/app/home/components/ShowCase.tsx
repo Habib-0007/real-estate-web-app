@@ -1,4 +1,3 @@
-import { DollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
 
 type CardsDataTypes = {
@@ -59,8 +58,8 @@ const Card = ({ data }: { data: CardsDataTypes }) => {
           <div className="flex justify-start items-start gap-0.5 flex-col shrink-0">
             <small className="text-[12px] text-[#999]">Price</small>
             <p className="flex justify-start items-center gap-[1px] flex-row text-lg">
-              <DollarSign size={16} />
-              {data.price}
+              {" "}
+              ${data.price}
             </p>
           </div>
           <Link
@@ -77,7 +76,7 @@ const Card = ({ data }: { data: CardsDataTypes }) => {
 
 const ShowCase = () => {
   return (
-    <section className="mt-34 grid grid-cols-12 px-5 py-3 lg:px-0">
+    <section className="mt-8 grid grid-cols-12 px-5 py-3 lg:px-0">
       <section className="col-start-1 col-end-13 lg:col-start-2 lg:col-end-12">
         <section className="flex justify-start items-stretch gap-5 flex-col">
           <section className="flex justify-start items-stretch flex-col gap-4">

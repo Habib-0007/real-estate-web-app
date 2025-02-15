@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useFormStore } from "../../../store/formStore";
 import Dropdown from "../../../components/Dropdown";
+import { Link } from "react-router-dom";
+import { Check } from "lucide-react";
 
 const Feedback = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -138,6 +140,7 @@ const Feedback = () => {
                   <ChevronDownIcon className="absolute right-4 top-[42px] text-white pointer-events-none" /> */}
                   <Dropdown
                     placeholder="Select Location"
+                    bg="#262626"
                     options={[
                       {
                         value: "downtown",
@@ -152,6 +155,7 @@ const Feedback = () => {
                   <label className={labelClass}>Property Types</label>
                   <Dropdown
                     placeholder="Select Property Type"
+                    bg="#262626"
                     options={[
                       { value: "house", label: "House" },
                       { value: "apartment", label: "Apartment" },
@@ -163,6 +167,7 @@ const Feedback = () => {
                   <label className={labelClass}>No. of Bathrooms</label>
                   <Dropdown
                     placeholder="Select No. Bathrooms"
+                    bg="#262626"
                     options={[
                       { value: "1", label: "1" },
                       { value: "2", label: "2" },
@@ -176,6 +181,7 @@ const Feedback = () => {
                   <label className={labelClass}>No. of Bedrooms</label>
                   <Dropdown
                     placeholder="Select No. Bedrooms"
+                    bg="#262626"
                     options={[
                       { value: "1", label: "1" },
                       { value: "2", label: "2" },
@@ -191,6 +197,7 @@ const Feedback = () => {
 
                 <Dropdown
                   placeholder="Pricing Range"
+                  bg="#262626"
                   options={[
                     { value: "0-100k", label: "$0 - $100,000" },
                     { value: "100k-500k", label: "$100,000 - $500,000" },
@@ -270,30 +277,35 @@ const Feedback = () => {
               </div>
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div className="flex items-start gap-2">
-                  <input
-                    type="checkbox"
-                    id="terms"
-                    className="mt-1 w-4 h-4 rounded accent-[#703bf7]"
-                    checked={formState.terms}
-                    onChange={(e) =>
-                      formState.setField("terms", e.target.checked)
-                    }
-                  />
+                  <label className="relative cursor-pointer">
+                    <input
+                      type="checkbox"
+                      id="terms"
+                      className="peer hidden"
+                      checked={formState.terms}
+                      onChange={(e) =>
+                        formState.setField("terms", e.target.checked)
+                      }
+                    />
+                    <div className="w-5 h-5 border-1 rounded-md flex items-center justify-center transition-all duration-300 border-[#999] text-transparent peer-checked:bg-[#703bf7] peer-checked:border-[#703bf7] peer-checked:text-white">
+                      <Check className="w-4 h-4" />
+                    </div>
+                  </label>
                   <label htmlFor="terms" className="text-sm text-[#999999]">
                     I agree with{" "}
-                    <a
-                      href="#"
+                    <Link
+                      to="#"
                       className="text-[#999999] hover:text-white underline"
                     >
                       Terms of Use
-                    </a>{" "}
+                    </Link>{" "}
                     and{" "}
-                    <a
-                      href="#"
+                    <Link
+                      to="#"
                       className="text-[#999999] hover:text-white underline"
                     >
                       Privacy Policy
-                    </a>
+                    </Link>
                   </label>
                 </div>
                 {errors.terms && (

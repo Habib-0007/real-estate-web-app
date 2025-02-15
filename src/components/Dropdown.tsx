@@ -4,10 +4,11 @@ import { ChevronDown } from "lucide-react";
 type DropdownProps = {
   icon?: React.ReactNode;
   placeholder: string;
+  bg?: string;
   options: { value: string; label: string }[];
 };
 
-const Dropdown = ({ icon, placeholder, options }: DropdownProps) => {
+const Dropdown = ({ icon, placeholder, options, bg }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState<Boolean>(false);
   const [selected, setSelected] = useState<string>("");
 
@@ -15,7 +16,7 @@ const Dropdown = ({ icon, placeholder, options }: DropdownProps) => {
     <div className="relative w-full md:w-auto min-w-40">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full h-12 bg-[#262626] rounded-lg px-4 text-white flex items-center gap-4 justify-between hover:bg-[#303030] transition-colors"
+        className={`w-full h-12 bg-[${bg || "#141414"}] rounded-lg px-4 text-white flex items-center gap-4 justify-between hover:bg-[#1a1a1a] transition-colors`}
       >
         <div className="flex items-center gap-2">
           {icon}
